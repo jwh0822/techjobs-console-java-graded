@@ -112,7 +112,7 @@ public class JobData {
            }//endinnerforloop
         }//endouterforloop
         return jobs;
-    }
+    }//endclass
 
     /**
      * Read in data from a CSV file and store it in a list

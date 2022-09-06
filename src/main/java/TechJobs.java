@@ -71,7 +71,7 @@ public class TechJobs {
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
-                }
+                }//endif
             }
         }
     }
