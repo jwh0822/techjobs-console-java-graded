@@ -116,7 +116,7 @@ public class TechJobs {
                 System.out.println("Invalid choice. Try again.");
             } else {
                 validChoice = true;
-            }
+            }//endif
 
         } while(!validChoice);
 

@@ -40,7 +40,7 @@ public class JobData {
             if (!values.contains(aValue)) {
                 values.add(aValue);
             }//endif
-        }
+        }//end for
 
         // Bonus mission: sort the results
         Collections.sort(values);
