@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Collections;
 
 /**
  * Created by LaunchCode
@@ -41,11 +42,13 @@ public class TechJobs {
                 if (columnChoice.equals("all")) {
                     printJobs(JobData.findAll());
                 } else {
-
                     ArrayList<String> results = JobData.findAll(columnChoice);
+                    System.out.println("");
+                    //System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
+                    System.out.println("*** All " + columnChoices.get(columnChoice) + " Values ***");
 
-                    System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
-
+                    // Sorts the list before printin
+                    Collections.sort(results);
                     // Print list of skills, employers, etc
                     for (String item : results) {
                         System.out.println(item);
@@ -58,8 +61,11 @@ public class TechJobs {
                 String searchField = getUserSelection("Search by:", columnChoices);
 
                 // What is their search term?
-                System.out.println("\nSearch term:");
-                String searchTerm = in.nextLine();
+                System.out.println("");
+                //System.out.println("\nSearch term:");
+                System.out.println("Search term:");
+                String searchTerm = in.nextLine().toUpperCase();
+
 
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
@@ -86,9 +92,9 @@ public class TechJobs {
         }
 
         do {
-
-            System.out.println("\n" + menuHeader);
-
+            System.out.println("");
+            //System.out.println("\n" + menuHeader);
+            System.out.println(menuHeader);
             // Print available choices
             for (int j = 0; j < choiceKeys.length; j++) {
                 System.out.println("" + j + " - " + choices.get(choiceKeys[j]));
@@ -120,6 +126,20 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
-    }
+        //System.out.println("printJobs is not implemented yet");
+
+        if(someJobs.isEmpty() == true){
+            System.out.print("No Results");
+        }
+        else {
+            for (HashMap<String, String> aList : someJobs) {
+                System.out.println("");
+                System.out.println("*****");
+                for (Map.Entry<String, String> record : aList.entrySet()){
+                    System.out.println(record.getKey() + ":" + " " + record.getValue());
+                }//endinnerforloop
+                System.out.println("*****");
+            }//endouterforloop
+        }//endif
+    }//endprintjobs
 }
